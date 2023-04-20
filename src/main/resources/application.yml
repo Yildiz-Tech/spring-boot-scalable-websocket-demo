@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  banner:
+    location: classpath:banner.txt
+  application:
+    name: yt-websocket-service
+
+---
+
+security:
+  jwt:
+    token:
+      secret-key: 'FC0183C761C88601A426096E7C3437E5D3C63A2F1F41455FCCC030DE92863533'
+
+---
+rabbitmq:
+  #  url: ${routi.websocket.service.rabbitmq.url:localhost}
+  #  port: ${routi.websocket.service.rabbitmq.port:61613}
+  #  user: ${routi.websocket.service.rabbitmq.user:babbitty}
+  #  password: ${routi.websocket.service.rabbitmq.password:rabbitty}
+  url: localhost
+  port: 61613
+  user: babbitty
+  password: rabbitty
+
+---
+logging:
+  level:
+    org:
+      springframework:
+        messaging:
+          simp:
+            user:
+              UserDestinationMessageHandler: TRACE
+            stomp:
+              StompBrokerRelayMessageHandle: TRACE

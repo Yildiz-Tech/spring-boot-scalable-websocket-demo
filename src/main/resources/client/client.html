@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<title>Test Queues</title>
+<script src="stomp.umd.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+
+  function start() {
+    const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpenpldC5raWxpY0B5aWxkaXRlY2guY28iLCJpYXQiOjE2ODIwMTk2MzIsImV4cCI6MTY4MjAyMjgzMn0.UNBf7ESbQSVgylCejKJmmWxVRN4sZXdTWKxn3b-Nq1A";
+    const client = new StompJs.Client({
+                                        brokerURL: "ws://localhost:8080/live-feed-gps?token="+token,
+                                        debug: function (str) {
+                                          console.log(str);
+                                        },
+                                        reconnectDelay: 500000,
+                                        heartbeatIncoming: 60000,
+                                        heartbeatOutgoing: 60000
+                                      });
+
+    client.stompVersions = new StompJs.Versions(['1.2'])
+
+    client.onConnect = function (frame) {
+      console.log("CONNECTED");
+
+      var subscription = client.subscribe("/user/queue/live-feed-gps-stream", function (message) {
+        console.log("Received", message.body);
+      }, {'auto-delete': true});
+    };
+
+
+    client.onStompError = function (frame) {
+      console.log('Broker reported error: ');
+      console.log(frame.headers['message']);
+      console.log('Additional details: ', frame.body);
+
+      client.deactivate();
+    };
+
+    client.activate();
+  }
+
+  window.addEventListener("load", start, false);
+
+</script>
