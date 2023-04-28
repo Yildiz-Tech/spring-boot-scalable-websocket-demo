@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.9-management
+    container_name: rabbitmq
+    ports:
+      - "61613:61613"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: babbitty
+      RABBITMQ_DEFAULT_PASS: rabbitty
+    volumes:
+      - "./rabbit_enabled_plugins:/etc/rabbitmq/enabled_plugins"
+      - "./10-defaults.conf:/etc/rabbitmq/conf.d/10-defaults.conf"
