@@ -16,10 +16,6 @@ security:
 
 ---
 rabbitmq:
-  #  url: ${routi.websocket.service.rabbitmq.url:localhost}
-  #  port: ${routi.websocket.service.rabbitmq.port:61613}
-  #  user: ${routi.websocket.service.rabbitmq.user:babbitty}
-  #  password: ${routi.websocket.service.rabbitmq.password:rabbitty}
   url: localhost
   port: 61613
   user: babbitty
