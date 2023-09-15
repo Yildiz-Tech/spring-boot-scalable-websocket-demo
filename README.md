@@ -14,9 +14,9 @@ without any loss or delay is of utmost importance. To achieve this, it is crucia
 distributed architecture to communicate with each other. In order to visualize the problem effectively, it will be
 beneficial to illustrate the following scenarios.
 
-|                                                                                                |
-|:----------------------------------------------------------------------------------------------:|
-| <img src="src/main/resources/images/architecture-1.png" width="75%"  alt="auto delete queue"/> |
+|                                                                                                  |
+|:------------------------------------------------------------------------------------------------:|
+| <img src="src/main/resources/images/architecture-1.webp" width="100%"  alt="auto delete queue"/> |
 
 If we consider these scenarios one by one, the first scenario is a problem which led to the writing of this article.
 When users establish a WebSocket connection, they are essentially establishing a bidirectional
@@ -68,9 +68,9 @@ sent over the `/topic/user-registry` queue, regardless of which WebSocket pod th
 seamless message delivery to all connected users, ensuring that messages reach the intended recipients regardless of
 their specific WebSocket pod.
 
-|                                                                                                |
-|:----------------------------------------------------------------------------------------------:|
-| <img src="src/main/resources/images/architecture-2.png" width="75%"  alt="auto delete queue"/> |
+|                                                                                                  |
+|:------------------------------------------------------------------------------------------------:|
+| <img src="src/main/resources/images/architecture-2.webp" width="100%"  alt="auto delete queue"/> |
 
 To observe the described scenario based on our sample project's logs, you can simulate it by running two different
 applications with environment variables `SERVER_PORT=8080` and `SERVER_PORT=8081`. As an example, since we have added a
