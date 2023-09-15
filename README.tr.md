@@ -14,9 +14,9 @@ araçtır. Bu özelliklerin yer aldığı uygulamalarda doğru mesajın doğru k
 gerekmektedir. Bu noktada aşağıdaki senaryolar üzerinden anlatım sağlamak sorunu görselleştirme açısından faydalı
 olacaktır.
 
-|                                                                                                |                        |
-|:----------------------------------------------------------------------------------------------:|:----------------------:|
-| <img src="src/main/resources/images/architecture-1.png" width="75%"  alt="auto delete queue"/> | figma çizimi eklenecek |
+|                                                                                                  |                        |
+|:------------------------------------------------------------------------------------------------:|:----------------------:|
+| <img src="src/main/resources/images/architecture-1.webp" width="100%"  alt="auto delete queue"/> | figma çizimi eklenecek |
 
 Karşımıza çıkan bu senaryoları sırayla ele alacak olursak; ilk senaryo bu makalenin de yazılmasına sebep olan bir
 sorundur. Kullanıcılar istemci üzerinden bir WebSocket bağlantısı açtığında aslında uçtan uca iki yönlü bir bağlantı
@@ -65,9 +65,9 @@ RabbitMQ'u geçiş sunucusu olarak kullanmanın faydası hem kendi içinde ölç
 de `UserRegistryBroadcast` parametresi sayesinde `/topic/user-registry` kuyruğu üzerinden kullanıcıların hangi WebSocket
 poduna bağlı olduğu farketmeksizin mesajların gönderilebilmesidir.
 
-|                                                                                                |                        |
-|:----------------------------------------------------------------------------------------------:|:----------------------:|
-| <img src="src/main/resources/images/architecture-2.png" width="75%"  alt="auto delete queue"/> | figma çizimi eklenecek |
+|                                                                                                  |                        |
+|:------------------------------------------------------------------------------------------------:|:----------------------:|
+| <img src="src/main/resources/images/architecture-2.webp" width="100%"  alt="auto delete queue"/> | figma çizimi eklenecek |
 
 Yukarıda anlattığımız durumu örnek projemizin loglarına bakarak da görmemiz mümkün. Durumu simüle edebilmek adına ortam
 değişkeni olarak `SERVER_PORT=8080` ve `SERVER_PORT=8081` kullanarak iki farklı uygulama ayağa kaldırılabilir. Örnek
